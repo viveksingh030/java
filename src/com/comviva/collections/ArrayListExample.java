@@ -1,5 +1,7 @@
 package com.comviva.collections;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Spliterator;
 
@@ -47,7 +49,47 @@ public class ArrayListExample {
 		{
 			System.out.println(s);
 		}
+		
+		//checking  that object is present int list or not
+		System.out.println(arrayList1.contains("vivek"));
+		
+		//adding a collection to list
+		System.out.println("arrayList Contains");
+		System.out.println("********************************************************");
+		arrayList.addAll(arrayList1);
+		arrayList.forEach((e)->System.out.println(e));
+		
+		//find the index of object in arrayList
+		System.out.println("index of vivek in arrayList is");
+		System.out.println("**********************************");
+		System.out.println(arrayList.indexOf("vivek"));
+		
+		//find the sublist Of arrayList
+		System.out.println("sublist from index 3 to 5");
+		System.out.println("*****************************************");
+		arrayList.subList(3, 6).forEach((e)->System.out.println(e));
+		
+		//sort the content in not increasing order
+		System.out.println("Contents are now in decreasing order");
+		System.out.println("*********************************");
+		arrayList1.sort(Collections.reverseOrder());
+		arrayList1.forEach((e)->System.out.println(e));
+		
+		
+		//sort contents of arrayList in non decreasing order
+		arrayList1.sort(new Comparator<String>() {
 
+			@Override
+			public int compare(String arg0, String arg1) 
+			{
+				return arg0.compareTo(arg1);
+				
+			}
+		});
+		System.out.println("Contents are now in decreasing order");
+		System.out.println("*********************************");
+		arrayList1.forEach((e)->System.out.println(e));
+		
 	}
-
 }
+
